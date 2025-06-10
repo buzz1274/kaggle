@@ -6,11 +6,11 @@
 
 Build a **Python 3.11 mini-service** that
 
-1. **Fetches** latest data from Kaggle via the official API using data from the below urls. 
+1. **Fetches** latest data from Kaggle via the official API using data from the below urls.
    Trending YouTube Video Statistics
-   https://www.kaggle.com/datasets/datasnaek/youtube-new/data?select=GB_category_id.json
-   https://www.kaggle.com/datasets/datasnaek/youtube-new/data?select=GBvideos.csv
-2. **Transforms & graphs** raw files into a useful graph output.  
+   **https://www.kaggle.com/datasets/datasnaek/youtube-new/data?select=GB_category_id.json
+   https://www.kaggle.com/datasets/datasnaek/youtube-new/data?select=GBvideos.csv**
+2. **Transforms & graphs** raw files into a useful graph output.
 
 You own everything config, tests, logging, docs.
 
@@ -45,7 +45,7 @@ You own everything config, tests, logging, docs.
 ## 📦 Deliverables
 
 1. **Source repo** with this README covering:
-   * local setup (venv, Kaggle token)  
+   * local setup (venv, Kaggle token)
    * example usage & expected output
    * architecture decisions (short ADRs or bullet list)
 2. **Automated test suite** – all green with `pytest`.

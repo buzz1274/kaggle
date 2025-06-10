@@ -1,31 +1,26 @@
-exclude: ".git"
-default_stages: [commit, push]
+exclude: ".git|toml"
+default_stages: [pre-commit, pre-push]
 fail_fast: false
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.3.0
+    rev: v5.0.0
     hooks:
       - id: trailing-whitespace
-        exclude: snapshots
       - id: end-of-file-fixer
-        exclude: snapshots
-      - id: detect-private-key
-      - id: detect-aws-credentials
-        args: [--allow-missing-credentials]
       - id: check-merge-conflict
   - repo: https://github.com/psf/black
-    rev: 22.3.0
+    rev: 24.3.0
     hooks:
       - id: black
         language_version: python3
   - repo: https://github.com/pycqa/isort
-    rev: 5.12.0
+    rev: 5.13.0
     hooks:
       - id: isort
         args: ["--profile", "black", "--filter-files"]
   - repo: https://github.com/pycqa/flake8
-    rev: 4.0.1
+    rev: 7.2.0
     hooks:
       - id: flake8
         additional_dependencies:
@@ -37,10 +32,17 @@ repos:
     hooks:
       - id: bandit
         exclude: /tests
-  #- repo: local
-  #  hooks:
-  #    - id: unit-tests
-  #      name: run unit tests
-  #      language: python
-  #      entry: docker
-  #      args: ["exec", "kaggle", "bash", "-c", '"pytest"']
+  - repo: local
+    hooks:
+      - id: unit-tests
+        name: run unit tests(pytest)
+        language: python
+        entry: docker
+        args: ["exec", "kaggle", "bash", "-c", '"pytest"']
+  - repo: local
+    hooks:
+      - id: type-hinting
+        name: run type hinting(mypy)
+        language: python
+        entry: docker
+        args: ["exec", "kaggle", "bash", "-c", '"mypy"']

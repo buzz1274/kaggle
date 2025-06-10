@@ -1,2 +1,6 @@
 .idea/
 all_response_media_tech_test/
+__pycache__/
+compose.env
+downloader/visualisations/*
+downloader/logs/*
